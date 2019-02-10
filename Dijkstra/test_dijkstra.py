@@ -23,7 +23,7 @@ class TestDijkstraOptimum(unittest.TestCase):
         start_vertex = 0
         verticies = [0]
         edge_weights = {}
-        djk = Dijkstra( start_vertex, verticies, edge_weights)
+        djk = Dijkstra(start_vertex, verticies, edge_weights)
         djk.iterate()
 #        self.assertRaises(ValueError, djk.iterate)
         self.assertEqual(1, len(djk.parents)) #parents is empty
@@ -37,11 +37,11 @@ class TestDijkstraOptimum(unittest.TestCase):
         start_vertex = 0
         verticies = [0,1]
         edge_weights = {(0,1) : 1}
-        djk = Dijkstra( start_vertex, verticies, edge_weights)
+        djk = Dijkstra(start_vertex, verticies, edge_weights)
 #        pdb.set_trace()
         djk.iterate()
 #        self.assertRaises(ValueError, djk.iterate)
-#        print( "parents=", djk.parents)
+#        print("parents=", djk.parents)
         self.assertEqual(2, len(djk.parents)) #parents is empty
         self.assertEqual([], djk.parents[0])
         self.assertEqual([0], djk.parents[1])
@@ -53,11 +53,11 @@ class TestDijkstraOptimum(unittest.TestCase):
         start_vertex = 0
         verticies = [0,1,2]
         edge_weights = {(0,1) : 1, (0,2) : 1}
-        djk = Dijkstra( start_vertex, verticies, edge_weights)
+        djk = Dijkstra(start_vertex, verticies, edge_weights)
 #        pdb.set_trace()
         djk.iterate()
 #        self.assertRaises(ValueError, djk.iterate)
-#        print( "parents=", djk.parents)
+#        print("parents=", djk.parents)
         self.assertEqual(3, len(djk.parents)) #parents is empty
         self.assertEqual([], djk.parents[0])
         self.assertEqual([0], djk.parents[1])
@@ -70,11 +70,11 @@ class TestDijkstraOptimum(unittest.TestCase):
         start_vertex = 0
         verticies = [0,1,2]
         edge_weights = {(0,1) : 1, (1,2) : 2}
-        djk = Dijkstra( start_vertex, verticies, edge_weights)
+        djk = Dijkstra(start_vertex, verticies, edge_weights)
 #        pdb.set_trace()
         djk.iterate()
 #        self.assertRaises(ValueError, djk.iterate)
-#        print( "parents=", djk.parents)
+#        print("parents=", djk.parents)
         self.assertEqual(3, len(djk.parents)) #parents is empty
         self.assertEqual([], djk.parents[0])
         self.assertEqual([0], djk.parents[1])
@@ -87,11 +87,11 @@ class TestDijkstraOptimum(unittest.TestCase):
         start_vertex = 0
         verticies = [0,1,2,3]
         edge_weights = {(0,1) : 1, (0,2) : 1, (1,3):1, (2,3) : 2}
-        djk = Dijkstra( start_vertex, verticies, edge_weights)
+        djk = Dijkstra(start_vertex, verticies, edge_weights)
 #        pdb.set_trace()
         djk.iterate()
 #        self.assertRaises(ValueError, djk.iterate)
-#        print( "parents=", djk.parents)
+#        print("parents=", djk.parents)
         self.assertEqual(4, len(djk.parents)) #parents is empty
         self.assertEqual([], djk.parents[0])
         self.assertEqual([0], djk.parents[1])
@@ -105,13 +105,13 @@ class TestDijkstraOptimum(unittest.TestCase):
         verticies = ['a','b','c','d','e','f']
 #       edge_weights = {('a','b') : 2, ('a','f') : 4, ('a','d'):5, ('b','c') : 4, ('f','c') : 3, ('f','d') : 2, ('d','e') : 1}
         edge_weights = {('a','b') : 2, ('a','f') : 4, ('a','d'):5, ('b','c') : 4, ('c','f') : 3, ('d','f') : 2, ('d','e') : 1}
-        djk = Dijkstra( start_vertex, verticies, edge_weights)
+        djk = Dijkstra(start_vertex, verticies, edge_weights)
 #        pdb.set_trace()
         djk.iterate()
 #        self.assertRaises(ValueError, djk.iterate)
-#        print( "parents=", djk.parents)
+#        print("parents=", djk.parents)
         self.assertEqual(6, len(djk.parents)) #parents is empty
-#        print( "parents=", djk.parents)
+#        print("parents=", djk.parents)
         self.assertEqual([], djk.parents['a'])
         self.assertEqual(['a'], djk.parents['b'])
         self.assertEqual(['a'], djk.parents['d'])

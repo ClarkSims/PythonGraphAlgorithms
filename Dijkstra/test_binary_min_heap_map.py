@@ -97,8 +97,8 @@ class TestChangeHeap(unittest.TestCase):
             nd = bmh.heap[0]
             self.assertEqual(i, nd.key)
             self.assertEqual(-i, nd.value)
-        self.assertRaises( ValueError, bmh.decrease_value, 1000, 0)
-        self.assertRaises( ValueError, bmh.decrease_value, -100, 1000)
+        self.assertRaises(ValueError, bmh.decrease_value, 1000, 0)
+        self.assertRaises(ValueError, bmh.decrease_value, -100, 1000)
 
 
     class TestExtractMin(unittest.TestCase):

@@ -144,11 +144,11 @@ class BinaryMinHeapMap:
             self.heap[0] = self.heap.pop() # put last node as first
             self.map[self.heap[0].key] = 0
 #            if not self.has_valid_heap_and_map():
-#                raise RuntimeError( "heap invalid after shift")
+#                raise RuntimeError("heap invalid after shift")
 #            pdb.set_trace()
             self.filter_down(0)
 #            if not self.has_valid_heap_and_map():
-#                raise RuntimeError( "heap invalid after filterdown")
+#                raise RuntimeError("heap invalid after filterdown")
         elif heap_len == 1:
             self.heap.pop()
         return (node.key, node.value)
@@ -159,19 +159,19 @@ class BinaryMinHeapMap:
         if not vertex_key in self.map:
             raise ValueError("vertex_key={} in self.map".format(vertex_key))
         vertex_offset = self.map[vertex_key]
-        if len( self.heap) != len( self.map ):
-            print( "self.heap) != len( self.map)" )
+        if len(self.heap) != len( self.map ):
+            print("self.heap) != len( self.map)" )
             pdb.set_trace()
         if vertex_offset >= len(self.heap):
-            print( "vertex_offset >= len(self.heap)")
+            print("vertex_offset >= len(self.heap)")
             pdb.set_trace()
         return self.heap[vertex_offset].value
 
 
     def has_valid_heap_and_map(self):
         ''' checks that heap and map are consistant '''
-        if len( self.heap) != len( self.map ):
-            print( "self.heap) != len( self.map)" )
+        if len(self.heap) != len( self.map ):
+            print("self.heap) != len( self.map)" )
             return False
         for key, offset in self.map.items():
             if offset < 0 or offset >= len(self.heap):

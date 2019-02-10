@@ -77,7 +77,7 @@ class Dijkstra:
                     print("    edge_weight = ", edge_weight)
                 if self._bmh.contains_vertex_key(adj_key):
                     if verbose and not self._bmh.has_valid_heap_and_map():
-                        print( "invalid heap and map at edge_iter=", edge_iter)
+                        print("invalid heap and map at edge_iter=", edge_iter)
 #                    if vertex_iter == 2:
 #                        pdb.set_trace()
                     adj_value = self._bmh.get_value(adj_key)
@@ -100,7 +100,7 @@ class Dijkstra:
                             print("    bmh is valid=", self._bmh.has_valid_heap_and_map())
                             print("    bmh = ", self._bmh)
                             if not self._bmh.has_valid_heap_and_map():
-                                print( "giving up", adj_key)
+                                print("giving up", adj_key)
                                 raise ValueError("corrupt heap")
                     elif test_dist == value:
                         self._parents[adj_key].append(key)
