@@ -69,7 +69,7 @@ class TestCreationOfBinaryHeapMap(unittest.TestCase):
 
     def test_raise_execptions(self):
         self.assertRaises(ValueError, BinaryMinHeapMap, vertex_keys = range(0, 10))
-        self.assertRaises(ValueError, BinaryMinHeapMap, vertex_keys = range(0, 10), 
+        self.assertRaises(ValueError, BinaryMinHeapMap, vertex_keys = range(0, 10),
             vertex_values=range(0,5))
 
 
@@ -84,7 +84,7 @@ class TestCreationOfBinaryHeapMap(unittest.TestCase):
         self.assertFalse(bmh.is_heap())
 
 
-class TestChangeHeap(unittest.TestCase): 
+class TestChangeHeap(unittest.TestCase):
     def test_decrease_value(self):
         bmh = BinaryMinHeapMap()
         N = 10
@@ -117,7 +117,7 @@ class TestChangeHeap(unittest.TestCase):
 
         def test_dijkstra_failure(self):
             ''' testing case that failed in Dijstra's algorithm '''
-            vertex_keys =   ['b', 'f', 'c', 'd', 'e'] 
+            vertex_keys =   ['b', 'f', 'c', 'd', 'e']
             vertex_values = [2, 4, math.inf, 5, math.inf]
             bmh = BinaryMinHeapMap(vertex_keys, vertex_values)
             self.assertTrue(bmh.is_heap())

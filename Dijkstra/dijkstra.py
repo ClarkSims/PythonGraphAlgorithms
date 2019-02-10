@@ -27,7 +27,10 @@ class Dijkstra:
             verticies.insert(0, start_vertex)
             raw_heap_vals = [0] + [math.inf for i in range(1, len(verticies))]
             self._bmh = BinaryMinHeapMap(verticies, raw_heap_vals)
-            self._graph = UndirectedGraphWithWeightedEdges(verticies, edge_weights, reverse_keys=True)
+            self._graph = \
+                UndirectedGraphWithWeightedEdges(verticies,
+                                                 edge_weights,
+                                                 reverse_keys=True)
 
 
     def iterate(self, verbose=False):
@@ -64,7 +67,7 @@ class Dijkstra:
             for adj_key in self._graph.adjacent_verticies(key):
                 if verbose:
                     print("    line = ", inspect.currentframe().f_back.f_lineno)
-                    print("    adj_key = ", adj_key, " key=", key) 
+                    print("    adj_key = ", adj_key, " key=", key)
                     print("    bmh has key = ", self._bmh.contains_vertex_key(adj_key) )
                     print("    bmh is heap = ", self._bmh.is_heap())
                     print("    bmh is valid= ", self._bmh.has_valid_heap_and_map())
@@ -83,7 +86,7 @@ class Dijkstra:
                         if verbose:
                             print("    before decrease key")
                             print("    line = ", inspect.currentframe().f_back.f_lineno)
-                            print("    adj_key=", adj_key, " key=", key) 
+                            print("    adj_key=", adj_key, " key=", key)
                             print("    bmh is heap=", self._bmh.is_heap())
                             print("    bmh is valid=", self._bmh.has_valid_heap_and_map())
                             print("    bmh = ", self._bmh)
@@ -92,7 +95,7 @@ class Dijkstra:
                         if verbose:
                             print("    after decrease key")
                             print("    line = ", inspect.currentframe().f_back.f_lineno)
-                            print("    adj_key=", adj_key, " key=", key) 
+                            print("    adj_key=", adj_key, " key=", key)
                             print("    bmh is heap=", self._bmh.is_heap())
                             print("    bmh is valid=", self._bmh.has_valid_heap_and_map())
                             print("    bmh = ", self._bmh)
