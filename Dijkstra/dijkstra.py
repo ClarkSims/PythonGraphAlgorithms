@@ -68,7 +68,7 @@ class Dijkstra:
                 if verbose:
                     print("    line = ", inspect.currentframe().f_back.f_lineno)
                     print("    adj_key = ", adj_key, " key=", key)
-                    print("    bmh has key = ", self._bmh.contains_vertex_key(adj_key) )
+                    print("    bmh has key = ", self._bmh.contains_vertex_key(adj_key))
                     print("    bmh is heap = ", self._bmh.is_heap())
                     print("    bmh is valid= ", self._bmh.has_valid_heap_and_map())
                     print("    bmh = ", self._bmh)
