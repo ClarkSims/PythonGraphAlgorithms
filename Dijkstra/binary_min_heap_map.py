@@ -159,8 +159,8 @@ class BinaryMinHeapMap:
         if not vertex_key in self.map:
             raise ValueError("vertex_key={} in self.map".format(vertex_key))
         vertex_offset = self.map[vertex_key]
-        if len(self.heap) != len( self.map ):
-            print("self.heap) != len( self.map)" )
+        if len(self.heap) != len(self.map):
+            print("self.heap) != len(self.map)")
             pdb.set_trace()
         if vertex_offset >= len(self.heap):
             print("vertex_offset >= len(self.heap)")
@@ -170,8 +170,8 @@ class BinaryMinHeapMap:
 
     def has_valid_heap_and_map(self):
         ''' checks that heap and map are consistant '''
-        if len(self.heap) != len( self.map ):
-            print("self.heap) != len( self.map)" )
+        if len(self.heap) != len(self.map):
+            print("self.heap) != len(self.map)")
             return False
         for key, offset in self.map.items():
             if offset < 0 or offset >= len(self.heap):
