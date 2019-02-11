@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 ''' library for implementing Dijkstra's algorithm '''
 import math
-import pdb
 import inspect
 from binary_min_heap_map import BinaryMinHeapMap
 from undirected_graph_with_weighted_edges import UndirectedGraphWithWeightedEdges
@@ -118,9 +117,11 @@ class Dijkstra:
 
     @property
     def parents(self):
+        ''' Returns dict of all parents '''
         return self._parents
 
 
     @property
     def distances(self):
+        ''' Returns dict of all distances '''
         return self._distances
