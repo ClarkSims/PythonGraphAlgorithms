@@ -1,13 +1,23 @@
 '''Traveling Salesman Problem
- This module implements a more efficient version the Held Karp algorithm for
- solving the Anti-Symetric Traveling Salesman Problem.
- https://en.wikipedia.org/wiki/Travelling_salesman_problem
- https://en.wikipedia.org/wiki/Held%E2%80%93Karp_algorithm
- This is a bottom up implementation, which only looks at permutations of
- verticies that arise from following edges with finite weight. In the
- standard implementation, all permutations of the power set of all verticies
- is explored, and edges which do not exist, are substutitued with an edge
- of infinite weight.
+This module implements a more efficient version the Held Karp algorithm for
+solving the Anti-Symetric Traveling Salesman Problem.
+https://en.wikipedia.org/wiki/Travelling_salesman_problem
+https://en.wikipedia.org/wiki/Held%E2%80%93Karp_algorithm
+This is a bottom up implementation, which only looks at permutations of
+verticies that arise from following edges with finite weight. In the
+standard implementation, all permutations of the power set of all verticies
+is explored, and edges which do not exist, are substutitued with an edge
+of infinite weight.
+I based this code on Tushar Roy's soltion for the TSP, https://github.com/mission-peace/interview/blob/master/src/com/interview/graph/TravelingSalesmanHeldKarp.java, 
+and unwittlingly copied a design error. He stores the parent pointers, in a container that maps vertex to vertex. This does not allow allow enumeration of multiple paths,
+if there are multiple minimum solutions. However this is still wrong.
+The parent pointers should be stored in a map, from the mnemonics to mnemonics,
+since each parent pointer represents a transition from one mnemonic to another.
+In this case, the map reduces to a map of nmenomic to vertex list, since each
+successive mnemonic in the path, can be represented as a set of interternal verticies,
+and the final vertex, (see class Path). On needs as the domain, a full path, and as the range,
+the set of vericies, which are paths one shorter in length, which end in the respective
+vertex.
 '''
 import copy
 import pdb
