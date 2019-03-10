@@ -4,6 +4,8 @@ import topological_sort as ts
 
 def demo_func():
     '''Demonstration of the the functions in topological_sort.py'''
+    ts.VERBOSE = True
+
     dag = {0 : [1], 1 : [2], 2 : [3], 3 : []}
     top_dependencies = []
     dependencies = ts.topological_sort(dag, top_dependencies)

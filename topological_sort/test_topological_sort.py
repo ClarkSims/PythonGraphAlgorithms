@@ -27,5 +27,12 @@ class TestTopologicalSort(unittest.TestCase):
         self.assertEqual([3], top_dependencies)
 
 
+    def test_cycle(self):
+        dag = {0 : [1], 1 : [2], 2 : [0]}
+        top_dependencies = []
+        with self.assertRaises(IndexError):
+            ts.topological_sort(dag, top_dependencies)
+
+
 if __name__ == '__main__':
     unittest.main() 

@@ -45,7 +45,7 @@ def topology_helper(\
     '''
     if VERBOSE:
         print("****************")
-        print("entering topology_helper with vertex")
+        print("entering topology_helper with vertex {}".format(vertex))
         print("vertex = ", vertex)
         print("call stack list = ", call_stack_list)
         print("traversed = ", traversed)
@@ -55,14 +55,17 @@ def topology_helper(\
         traversed.append(vertex)
 #        pdb.set_trace()
     else:
-        if vertex in call_stack_set:
-            pretty_error = "circular dependence {}".format(vertex)
-            vindex = call_stack_list.index(vertex)
-            for vert in call_stack_list[vindex+1:]:
-                pretty_error += "=> {}".format(vert)
-            pretty_error += "=> {}".format(vertex)
-            print("call stack list = ", call_stack_list)
-            raise IndexError(pretty_error)
+        for neighbor in dag[vertex]:
+            if neighbor in call_stack_set:
+                call_stack_list.append(vertex)
+                call_stack_set.add(vertex)
+                pretty_error = "circular dependence {}".format(neighbor)
+                vindex = call_stack_list.index(neighbor)
+                for vert in call_stack_list[vindex+1:]:
+                    pretty_error += "=> {}".format(vert)
+                pretty_error += "=> {}".format(neighbor)
+                raise IndexError(pretty_error)
+
     call_stack_list.append(vertex)
     call_stack_set.add(vertex)
     visited[vertex] = True
@@ -91,6 +94,8 @@ def topology_helper(\
     else:
         root_nodes.append(vertex)
 
+    call_stack_list.pop()
+    call_stack_set.remove(vertex)
     if VERBOSE:
         print("****************")
         print("leaving topology_helper with vertex")
