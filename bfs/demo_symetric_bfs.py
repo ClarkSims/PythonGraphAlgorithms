@@ -1,3 +1,5 @@
+'''I modeled the function double_sided_breadth_first_search after the ideas in "improving Dijkstra" in Cormen et al, and the OCW course on algorithms. Note that I expand the smaller boundary, in an effort to improve effeciency. I have not seen this applied to bfs before. Does anyone know the name of this algorithm? Does it have a name? I saw the technique for doing a double sided Dijkstra algorithm, doing the iteration on the smaller vertex with smaller degree described in compsci.stackoverflow.com but can't find the page now. Does anyone know of a references for the Dijkstra style algorithm I just described?'''
+
 #!/usr/bin/env python3
 
 def double_sided_breadth_first_search(undirected_graph, vertex0, vertex1):
