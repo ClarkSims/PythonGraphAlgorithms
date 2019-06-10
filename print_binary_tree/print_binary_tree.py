@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+''' can be imported or run alone as demo
+    ./print_binary_tree.py  > demo.gv
+    dot -Tpng -o demo.png demo.gv
+    '''
 
 class Node:
     ''' basic node '''
@@ -29,6 +33,12 @@ def write_tree_to_dot(root, out, options=[]):
         out.write("    {}".format(opt))
     write_node(root, out)
     out.write("}\n")
+
+
+def write_gsv_file(root, filename):
+    with open(filename, "w") as out:
+        write_tree_to_dot(root, out)
+
 
 def write_node(node, out, parent_id = None, prev_id = None):
     if prev_id is not None and parent_id is not None:
